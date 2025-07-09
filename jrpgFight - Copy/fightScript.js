@@ -75,13 +75,53 @@ let selectedEnemy;
 
     let enemySelector;
 
-    // Select random text outcome for enemy spawn
 
-    // let textSelector;
 
-    // let text1;
-    // let text2;
-    // let text3;
+    let newEnemytextSelector;
+    let newEnemyTextOptions;
+        let text1;
+        let text2;
+        let text3;
+        let text4;
+        let text5;
+
+    let playerAttackTextSelector1;
+    let playerAttackTextOptions1;
+        let text6;
+        let text7;
+        let text8;
+        let text9;
+        let text10;
+    let playerAttackTextSelector2;
+    let playerAttackTextOptions2;
+        let text21;
+        let text22;
+        let text23;
+        let text24;
+        let text25;
+
+    let enemyAttackTextSelector1;
+    let enemyAttackTextOptions1;
+        let text11;
+        let text12;
+        let text13;
+        let text14;
+        let text15;
+    let enemyAttackTextSelector2;
+    let enemyAttackTextOptions2;
+        let text26;
+        let text27;
+        let text28;
+        let text29;
+        let text30;
+
+    let enemyDefeatTextSelector;
+    let enemyDefeatTextOptions;
+        let text16;
+        let text17;
+        let text18;
+        let text19;
+        let text20;
 
     
 
@@ -100,7 +140,6 @@ function generateEnemy() {
 
     if (enemySelector <= 35) {
         selectedEnemy = bandit;
-        
     }
     else if (enemySelector > 36 && enemySelector < 60) {
         selectedEnemy = spider;
@@ -146,17 +185,18 @@ function generateEnemy() {
 
     // Select random text outcome for enemy spawn 
 
-    // let textOptions = [text1, text2, text3];
+    text1 = `A wild ${selectedEnemy.name} has appeared!`;
+    text2 = `Out of nowhere a ${selectedEnemy.name} appears!`;
+    text3 = `A ${selectedEnemy.name} comes running at you!`;
+    text4 = `You see a ${selectedEnemy.name} approaching...`;
+    text5 = `You feel a ${selectedEnemy.name}'s breath on your neck...`;
 
-    // text1 = `A wild ${selectedEnemy.name} has appeared!`;
-    // text2 = `Out of nowhere a ${selectedEnemy.name} appears`;
-    // text3 = `A ${selectedEnemy.name} comes running at you!`;
+    
+    newEnemyTextOptions = [text1, text2, text3, text4, text5];
 
+    newEnemytextSelector = newEnemyTextOptions[ Math.ceil(Math.random() * (4 - 0) + 0) ];
 
-    // textSelector = textOptions[ Math.ceil(Math.random() * (2 - 0) + 0) ];
-    // console.log(textOptions[0]);
-
-    document.getElementById("playerData").innerHTML = `A wild ${selectedEnemy.name} has appeared!`;   }
+    document.getElementById("playerData").innerHTML = newEnemytextSelector;   }
 
     
 
@@ -190,7 +230,18 @@ function defeatEnemy() {
             maxRollPlayer = maxRollPlayer + 10;
         }
 
-    document.getElementById("playerData").innerHTML = `You defeated the ${selectedEnemy.name}! You gained ${selectedEnemy.xpValue} XP!`;
+        text16 = `You defeated the ${selectedEnemy.name}! You gained ${selectedEnemy.xpValue} XP!`;
+        text17 = `The ${selectedEnemy.name} was beheaded! You gained ${selectedEnemy.xpValue} XP!`;
+        text18 = `The poor ${selectedEnemy.name} bled to death... You gained ${selectedEnemy.xpValue} XP!`;
+        text19 = `The ${selectedEnemy.name} put up a fight, but did not prevail. You gained ${selectedEnemy.xpValue} XP!`;
+        text20 = `The ${selectedEnemy.name}'s family will miss them, but you gained ${selectedEnemy.xpValue} XP!`;
+
+        enemyDefeatTextOptions = [text16, text17, text18, text19, text20];
+
+        enemyDefeatTextSelector = enemyDefeatTextOptions[ Math.ceil(Math.random() * (4 - 0) + 0) ];
+
+    document.getElementById("playerData").innerHTML = enemyDefeatTextSelector;
+
     document.getElementById("playerLvl").innerHTML = player.lvl;
     document.getElementById("playerXp").innerHTML = player.xp;
 }
@@ -199,7 +250,28 @@ function defeatEnemy() {
 
 // Player attacking enemy 
 function attackenemy() {
-        
+
+    text6 = `You slashed the ${selectedEnemy.name} and did ${playerAttackDamage} damage!`;
+    text7 = `You stabbed the ${selectedEnemy.name} from behind and did ${playerAttackDamage} damage!`;
+    text8 = `Your blade slashed the ${selectedEnemy.name} and did ${playerAttackDamage} damage!`;
+    text9 = `Your blow delt ${playerAttackDamage} damage to the ${selectedEnemy.name}!`;
+    text10 = `You poked the ${selectedEnemy.name} in the eye for ${playerAttackDamage} damage!`;
+
+    playerAttackTextOptions1 = [text6, text7, text8, text9, text10,];
+    
+    playerAttackTextSelector1 = playerAttackTextOptions1[ Math.ceil(Math.random() * (4 - 0) + 0) ];
+
+
+    text21 = `You hit the ${selectedEnemy.name}'s armour for ${Math.floor(playerAttackDamage / 2)} damage!`;
+    text22 = `The ${selectedEnemy.name} blocked your attack but still took ${Math.floor(playerAttackDamage / 2)} damage`;
+    text23 = `The ${selectedEnemy.name} managed to block and take ${Math.floor(playerAttackDamage / 2)} damage`;
+    text24 = `Your attack of ${Math.floor(playerAttackDamage / 2)} damage bounced off the ${selectedEnemy.name}'s armour!`;
+    text25 = `You nicked the ${selectedEnemy.name} for ${Math.floor(playerAttackDamage / 2)} damage`;
+
+    playerAttackTextOptions2 = [text21, text22, text23, text24, text25,];
+    
+    playerAttackTextSelector2 = playerAttackTextOptions2[ Math.ceil(Math.random() * (4 - 0) + 0) ]; 
+
     switch(playerBlock) {
         case false:
             // Attacking
@@ -238,11 +310,11 @@ function attackenemy() {
         switch (enemyBlock) {
 
             case true:
-                    document.getElementById("playerData").innerHTML = `You attacked the enemy and did ${Math.floor(playerAttackDamage / 2)} damage.`;
+                    document.getElementById("playerData").innerHTML = playerAttackTextSelector2;
                 break;
 
             case false:
-                    document.getElementById("playerData").innerHTML = `You attacked the enemy and did ${playerAttackDamage} damage.`;
+                    document.getElementById("playerData").innerHTML = playerAttackTextSelector1;
                 break;  }   }
 
     else if (playerAttackDamage <= 9 && playerBlock == false) {
@@ -252,6 +324,27 @@ function attackenemy() {
 
 // enemy attacking player 
 function attackPlayer() {
+
+
+        text11 = `The take a blow that does ${enemyAttackDamage} damage!`;
+        text12 = `You taste blood and take ${enemyAttackDamage} damage`;
+        text13 = `You grit your teeth and take ${enemyAttackDamage} damage`;
+        text14 = `You get slashed and receive ${enemyAttackDamage} damage!`;
+        text15 = `You hit your knees after taking ${enemyAttackDamage} damage`;
+
+        enemyAttackTextOptions1 = [text11, text12, text13, text14, text15,];
+        
+        enemyAttackTextSelector1 = enemyAttackTextOptions1[ Math.ceil(Math.random() * (4 - 0) + 0) ];
+
+        text26 = `You block a jab but still take ${Math.floor(enemyAttackDamage / 2)} damage`;
+        text27 = `Your armour protects you from taking any more than ${Math.floor(enemyAttackDamage / 2)} damage`;
+        text28 = `Your helmet catches a blow of ${Math.floor(enemyAttackDamage / 2)} damage!`;
+        text29 = `Your chestplate soaks up ${Math.floor(enemyAttackDamage / 2)} damage`;
+        text30 = `Your left grieve clangs as you take ${Math.floor(enemyAttackDamage / 2)} damage`;
+        
+        enemyAttackTextOptions2 = [text26, text27, text28, text29, text30,];
+
+        enemyAttackTextSelector2 = enemyAttackTextOptions2[ Math.ceil(Math.random() * (4 - 0) + 0) ];
     
         enemyBlockChoice = Math.ceil(Math.random() * (100 - 1) + 1);
 
@@ -292,11 +385,11 @@ function attackPlayer() {
         switch (playerBlock) {
 
             case true: 
-                document.getElementById("playerData").innerHTML = `The enemy attacked you and did ${Math.floor(enemyAttackDamage / 2)} damage.`;
+                document.getElementById("playerData").innerHTML = enemyAttackTextSelector2;
                 break;
 
             case false:
-                document.getElementById("playerData").innerHTML = `The enemy attacked you and did ${enemyAttackDamage} damage.`;
+                document.getElementById("playerData").innerHTML = enemyAttackTextSelector1;
                 break;  }   }
 
     else if (enemyAttackDamage <= 9 && enemyBlock == false) {
