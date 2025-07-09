@@ -1,0 +1,142 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Tiny5", sans-serif;
+}
+
+body {
+    background-color: black;
+}
+.box-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0.5em;
+    padding: 2em;
+
+}
+    .player-info-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        background-color: black;
+        border: solid white 5px;
+        height: 400px;
+        width: 250px;
+    }
+        .player-info-container p {
+            position: relative;
+            margin: auto;
+            color: white;
+            font-size: 2em;
+
+        }
+
+        #playerName::before {
+            content: "Name: ";
+        }
+        #playerHealth::before {
+            content: "HP: ";
+        }
+        #playerLvl::before {
+            content: "Lvl: ";
+        }
+        #playerXp::before {
+            content: "XP: ";
+        }
+    .enemy-info-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        background-color: black;
+        border: solid white 5px;
+        height: 400px;
+        width: 250px;
+    }
+        .enemy-info-container p {
+            position: relative;
+            margin: auto;
+            color: white;
+            font-size: 2em;
+
+        }
+
+        #enemyName::before {
+            content: "Name: ";
+        }
+        #enemyHealth::before {
+            content: "Health: ";
+        }
+        #enemyLvl::before {
+            content: "Lvl: " ;
+        }
+    .info-container {
+        display: inline-block;
+        position: relative;
+        
+        height: 400px;
+        max-height: 400px;
+        width: 300px;
+        border: solid white 5px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+        width: 50%;
+        margin: auto;
+    }
+        .info-container p {
+            position: relative;
+            padding: 0.6em;
+            margin: auto;
+            font-size: 1.8rem;
+            z-index: 10;
+            
+        }
+.button-container {
+    display: inline-block;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+    position: relative;
+    top: 0em;
+    gap: 1em;
+}
+.button-container button {
+    height: 2em;
+    width: 10em;
+    font-size: 2rem;
+    border-radius: 0px;
+    border: none;
+    padding: 0.06em;
+}
+
+.button-container-2 {
+    display: inline-block;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: auto;
+    position: relative;
+    top: 1em;
+    gap: 1em;
+}
+.button-container-2 button {
+    height: 2em;
+    width: 10em;
+    font-size: 2rem;
+    border-radius: 0px;
+    border: none;
+    padding: 0.06em;
+}
+
+
+

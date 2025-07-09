@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "fightStyles.css">
+    <script src = "fightScript.js"></script>
+    <!-- Import google font - Tiny5 -->a
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+    <section class = "box-container">
+        <div class = "player-info-container">
+            <p id = "playerName"></p>
+            <p id = "playerHealth"></p>
+            <p id = "playerLvl"></p>
+            <p id = "playerXp"></p>
+        </div>
+
+        <div class = "info-container">
+            <p id = "playerData">Press Select to play</p>
+            <!-- <p id = "monsterData"></p>
+            <p id = "playerBlockData"></p>
+            <p id = "monsterBlockData"></p> -->
+        </div>
+
+
+        <div class = "enemy-info-container">
+            <p id = "enemyName"></p>
+            <p id = "enemyHealth"></p>
+            <p id = "enemyLvl"></p>
+        </div>
+    </section>
+
+    <section class = "button-container">
+        <button type = "button" id = "attackBtn" onclick = "playerAttackTurn(); playerBlockFalse(); fight();" accesskey = "a">Attack</button>
+        <button type = "button" id = "blockBtn" onclick = "playerAttackTurn(); playerBlockTrue(); fight();" accesskey = "s">Block</button>
+        <button type = "button" id = "select" onclick = "select(); enemyAttackTurn();" accesskey = "w">Select</button>
+        
+    </section>
+
+    <section class = "button-container-2">
+        <!-- <button type = "button" id = "startBtn" onclick = "startGame()">Start</button> -->
+        <button type = "button" id = "restartBtn" onclick = "location.reload()">Restart</button>
+    </section>
+
+</body>
+</html>
