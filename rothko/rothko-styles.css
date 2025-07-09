@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(39, 39, 39);
+    padding-top: 50px;
+}
+.gallery-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Painting 1 */
+.box-container-1 {
+    background-color: rgb(44, 91, 183);
+    height: 600px;
+    width: 30%;
+    margin: auto;
+    box-shadow: 4px 4px 5px rgb(24, 24, 24);
+    transition: transform 0.2s ease-in, filter 0.3s ease;
+    filter: grayscale(100%);
+}
+    .box-top-1 {
+        background-color: rgb(4, 16, 33);
+        position: relative;
+        height: 230px;
+        width: 94%;
+        margin: auto;
+        top: 10px;
+        left: 5px;
+        filter: blur(8px);
+    }
+    .box-middle-1 {
+        background-color: rgb(15, 30, 99);
+        position: relative;
+        height: 40px;
+        width: 85%;
+        margin: auto;
+        top: 8px;
+        filter: blur(6px);
+    }
+    .box-bottom-1 {
+        background-color: rgb(185, 184, 205);
+        position: relative;
+        height: 280px;
+        width: 89%;
+        margin: auto;
+        top: 10px;
+        filter: blur(11px);
+    }
+.box-container-1:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+/* Painting 2 */
+.box-container-2 {
+    background-color: rgb(208, 101, 52);
+    height: 600px;
+    width: 30%;
+    margin: auto;
+    box-shadow: 4px 4px 5px rgb(24, 24, 24);
+    transition: transform 0.2s ease-in, filter 0.3s ease;
+    filter: grayscale(100%);
+}
+    .box-top-2 {
+        background-color: rgb(37, 34, 48);
+        position: relative;
+        margin: 60px auto 10px auto;
+        top: 0px;
+        width: 90%;
+        height: 70px;
+        filter: blur(6px);
+    }
+    .box-middle-2 {
+        background-color: rgb(9, 4, 27);
+        position: relative;
+        margin: 0px auto 10px auto;
+        top: 0px;
+        width: 93%;
+        height: 250px;
+        filter: blur(8px);
+    }
+    .box-bottom-2 {
+        background-color: rgb(86, 36, 28);
+        position: relative;
+        margin: auto;
+        height: 140px;
+        width: 91%;
+        top: 0px;
+        filter: blur(9px);
+    }
+.box-container-2:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+/* Painting 3 */
+.box-container-3 {
+    background-color: rgb(230, 136, 107);
+    height: 600px;
+    width: 30%;
+    margin: auto;
+    box-shadow: 4px 4px 5px rgb(24, 24, 24);
+    transition: transform 0.2s ease-in, filter 0.3s ease;
+    filter: grayscale(100%);
+}
+    .box-top-3 {
+        background-color: rgb(167, 73, 90);
+        position: relative;
+        height: 270px;
+        width: 95%;
+        margin: auto;
+        top: 20px;
+        filter: blur(9px);
+    }
+    .box-middle-3 {
+        background-color: rgb(217, 150, 178);
+        position: relative;
+        height: 60px;
+        width: 90%;
+        margin: auto;
+        filter: blur(8px);
+        top: 20px;
+    }
+    .box-bottom-3 {
+        background-color: rgb(232, 89, 37);
+        position: relative;
+        height: 210px;
+        width: 93%;
+        margin: auto;
+        top: 30px;
+        filter: blur(9px);
+    }
+.box-container-3:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}

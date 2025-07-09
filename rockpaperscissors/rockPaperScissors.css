@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+    padding: 0.1em;
+    font-size: clamp(2vw, calc(3vw + 3em), 4vw);
+}
+#result {
+    font-size: 2vw;
+    text-align: center;
+    position: relative;
+    top: 0em;
+}
+.rpsButtons {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    gap: 1em;
+    top: 23em;
+}
+.rpsButtons button {
+    position: relative;
+    left: 2em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(27, 109, 159);
+    color: white;
+}
+
+.rpsButtons img {
+    height: 100px;
+    width: 100px;
+}
+.shootButton-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    gap: 1em;
+    top: 25em;
+
+}
+#start {
+    position: relative;
+    left: 7em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 2px;
+    background-color: rgb(27, 109, 159);
+    color: white;
+    font-size: 1.5em;
+
+}
+.icon-container img {
+    left: 30em;
+    position: relative;
+    display: none;
+}
+.icon-container img:target {
+    display: inline-block;
+}
+
+.cpu-container img{
+    display: none;
+    position: relative;
+    left: 55em;
+    bottom: 12em;
+}
+
+.cpu-content img:target {
+    display: inline-block;
+}
+
+.rps {
+    position: relative;
+    left: 55em;
+    bottom: 12em;
+}

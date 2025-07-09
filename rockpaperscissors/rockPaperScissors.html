@@ -1,0 +1,59 @@
+<DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>Rock Paper Scissors</title>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "rockPaperScissors.css">
+    <script src = "rockPaperScissors.js"></script>
+</head>
+<body>
+    <header>
+        <h1>ROCK PAPER SCISSORS</h1>
+    </header>
+    <section>
+        
+       
+
+        <div class = "rpsButtons">
+            <button type = "button" onclick = "rockChoice()">
+                <a href = "#rockButton">
+                    <img src = "rock.webp" alt = "pixel-rock">
+                </a>
+            </button>
+            <button type = "button" onclick = "paperChoice()">
+                <a href = "#paperButton">
+                    <img src = "paper.webp" alt = "pixel Paper">
+                </a>
+            </button>   
+            <button type = "button" onclick = "scissorsChoice()">
+                <a  href = "#scissorsButton">
+                    <img src = "scissors.webp" alt = "pixel scissors">
+                </a>    
+            </button>
+        </div>
+
+        <br><br>
+
+        <div class = "shootButton-container">
+            <button type = "button" id = "start" onclick = "gameStart()">Shoot</button>
+        </div>
+
+        <div class = "icon-container">
+            <img src = "rock.webp" alt = "pixel-rock" id = "rockButton">
+            <img src = "paper.webp" alt = "pixel Paper" id = "paperButton">
+            <img src = "scissors.webp" alt = "pixel scissors" id = "scissorsButton">
+        </div>
+
+        <img src = "rps.gif" alt = "pixel rock paper scissors cycle" class = "rps" id = "rps">
+        <div class = "cpu-container">
+            <img src = "rock.webp" alt = "pixel-rock" id = "cpuRock">
+            <img src = "paper.webp" alt = "pixel Paper" id = "cpuPaper">
+            <img src = "scissors.webp" alt = "pixel scissors" id = "cpuScissors">
+        </div>
+
+        <p id = "result"></p>
+    </section>
+
+</body>
+</html>
