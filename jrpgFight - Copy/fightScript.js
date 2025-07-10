@@ -1,49 +1,52 @@
-// Player + Enemy objects
-let player = {
-    name: "player",
-    hp: 500,
-    lvl: 1,
-    xp: 0,
-}
+// Player 
+    let player = {
+        name: "player",
+        hp: 500,
+        lvl: 1,
+        xp: 0,
+    }
 
 // Enemies - regular
-let bandit = {
-    name: "Bandit",
-    hp: 100,
-    lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    xpValue: 50,
-}
+    let bandit = {
+        name: "Bandit",
+        hp: 100,
+        lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        xpValue: 50,
+    }
 
-let spider = {
-    name: "Spider",
-    hp: 120,
-    lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    xpValue: 60,
-}
+    let spider = {
+        name: "Spider",
+        hp: 120,
+        lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        xpValue: 60,
+    }
 
-let drowner = {
-    name: "Drowner",
-    hp: 150,
-    lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    xpValue: 75,
-}
+    let drowner = {
+        name: "Drowner",
+        hp: 150,
+        lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        xpValue: 75,
+    }
 
-let wyvern = {
-    name: "Wyvern",
-    hp: 180,
-    lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    xpValue: 100,
-}
+    let wyvern = {
+        name: "Wyvern",
+        hp: 180,
+        lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        xpValue: 100,
+    }
 
-let siren = {
-    name: "Siren",
-    hp: 200,
-    lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    xpValue: 120,
-}
+    let siren = {
+        name: "Siren",
+        hp: 200,
+        lvl: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        xpValue: 120,
+    }
 
-let enemy = [bandit, spider, drowner, wyvern, siren];
-let selectedEnemy;
+// Enemy array
+    //let enemy = [bandit, spider, drowner, wyvern, siren];
+
+// Current enemy
+    let selectedEnemy;
 
 // Variables
     let playerAttackDamage;
@@ -76,7 +79,7 @@ let selectedEnemy;
     let enemySelector;
 
 
-
+// Generate Enemy text options
     let newEnemytextSelector;
     let newEnemyTextOptions;
         let text1;
@@ -85,6 +88,8 @@ let selectedEnemy;
         let text4;
         let text5;
 
+// player attack text options
+    // Full attack
     let playerAttackTextSelector1;
     let playerAttackTextOptions1;
         let text6;
@@ -92,6 +97,7 @@ let selectedEnemy;
         let text8;
         let text9;
         let text10;
+    // Blocked attack
     let playerAttackTextSelector2;
     let playerAttackTextOptions2;
         let text21;
@@ -100,6 +106,8 @@ let selectedEnemy;
         let text24;
         let text25;
 
+// enemy attack text options
+    // Full attack
     let enemyAttackTextSelector1;
     let enemyAttackTextOptions1;
         let text11;
@@ -107,6 +115,7 @@ let selectedEnemy;
         let text13;
         let text14;
         let text15;
+    // Blocked attack
     let enemyAttackTextSelector2;
     let enemyAttackTextOptions2;
         let text26;
@@ -115,6 +124,7 @@ let selectedEnemy;
         let text29;
         let text30;
 
+// Defeate enemy text options
     let enemyDefeatTextSelector;
     let enemyDefeatTextOptions;
         let text16;
@@ -123,209 +133,223 @@ let selectedEnemy;
         let text19;
         let text20;
 
-    
 
-// Block functions
-    function playerBlockTrue()  { playerBlock = true; }
-    function playerBlockFalse() { playerBlock = false; }
-    function playerAttackTurn() { playerAttackDamage = Math.floor(Math.random() * (maxRollPlayer - 5) + 5); }
-    function enemyAttackTurn()  { enemyAttackDamage = Math.floor(Math.random() * (scaledMaxRoll - 5) + 5); }
+// --Block functions--
+function playerBlockTrue()  { playerBlock = true; }
+function playerBlockFalse() { playerBlock = false; }
 
 
-// Create new enemy
+// --Attack roll--
+function playerAttackTurn() { playerAttackDamage = Math.floor(Math.random() * (maxRollPlayer - 5) + 5); }
+function enemyAttackTurn()  { enemyAttackDamage = Math.floor(Math.random() * (scaledMaxRoll - 5) + 5); }
+
+
+// --Create new enemy--
 function generateEnemy() {
-    //selectedEnemy = enemy[ Math.floor(Math.random() * (5 - 0) + 0) ];
 
-    enemySelector = Math.floor(Math.random() * (100 - 1) + 1)
+    // Determine enemy type
+            enemySelector = Math.floor(Math.random() * (100 - 1) + 1);
 
-    if (enemySelector <= 35) {
-        selectedEnemy = bandit;
-    }
-    else if (enemySelector > 36 && enemySelector < 60) {
-        selectedEnemy = spider;
-    }
-    else if (enemySelector > 61 && enemySelector < 85) {
-        selectedEnemy = drowner;
-    }
-    else if (enemySelector > 86 && enemySelector < 91) {
-        selectedEnemy = wyvern;
-    }
-    else if (enemySelector > 91 && enemySelector < 100) {
-        selectedEnemy = siren;
-    }
+        if (enemySelector <= 35)                              {  selectedEnemy = bandit;  }
+        else if (enemySelector >= 36 && enemySelector <= 60)  {  selectedEnemy = spider;  }
+        else if (enemySelector >= 61 && enemySelector <= 85)  {  selectedEnemy = drowner; }
+        else if (enemySelector >= 86 && enemySelector <= 91)  {  selectedEnemy = wyvern;  }
+        else if (enemySelector >= 92 && enemySelector <= 100) {  selectedEnemy = siren;   }
 
-    selectedLvl = selectedEnemy.lvl[ Math.floor(Math.random() * (9 - 0) + 0) ];
+    // Determine enemy level 
+            selectedLvl = selectedEnemy.lvl[ Math.floor(Math.random() * (9 - 0) + 0) ];
 
-    if (selectedEnemy.name == "Bandit") {
-        selectedEnemy.hp = 100;
-    }
-    else if (selectedEnemy.name == "Spider") {
-        selectedEnemy.hp = 120;
-    }
-    else if (selectedEnemy.name == "Drowner") {
-        selectedEnemy.hp = 150;
-    }
-    else if (selectedEnemy.name == "Wyvern") {
-        selectedEnemy.hp = 180;
-    }
-    else if (selectedEnemy.name == "Siren") {
-        selectedEnemy.hp = 200;
-    }
+        if (selectedEnemy.name == "Bandit")         { selectedEnemy.hp = 100; }
+        else if (selectedEnemy.name == "Spider")    { selectedEnemy.hp = 120; }
+        else if (selectedEnemy.name == "Drowner")   { selectedEnemy.hp = 150; }
+        else if (selectedEnemy.name == "Wyvern")    { selectedEnemy.hp = 180; }
+        else if (selectedEnemy.name == "Siren")     { selectedEnemy.hp = 200; }
 
-    scaledXp = Math.round( selectedEnemy.xpValue + (selectedLvl / 4 * selectedEnemy.xpValue) );
+    // Calculating XP value of enemy
+        scaledXp = Math.round( selectedEnemy.xpValue + (selectedLvl / 4 * selectedEnemy.xpValue) );
 
-    scaledMaxRoll = maxRollEnemy + ( selectedLvl / 5 * maxRollEnemy );
+    // Calculating max damage roll of enemey
+        scaledMaxRoll = maxRollEnemy + ( selectedLvl / 5 * maxRollEnemy );
 
-    scaledHp = selectedEnemy.hp = Math.round( selectedEnemy.hp + (selectedLvl / 4 * selectedEnemy.hp) );
+    // Calculating HP of enemy
+        scaledHp = selectedEnemy.hp = Math.round( selectedEnemy.hp + (selectedLvl / 4 * selectedEnemy.hp) );
 
-
-    document.getElementById("enemyName").innerHTML = selectedEnemy.name;
-    document.getElementById("enemyHealth").innerHTML = selectedEnemy.hp;
-    document.getElementById("enemyLvl").innerHTML = selectedLvl;
+    
 
     // Select random text outcome for enemy spawn 
+        // enemy spawn text outcomes
+        text1 = `A wild ${selectedEnemy.name} has appeared!`;
+        text2 = `Out of nowhere a ${selectedEnemy.name} appears!`;
+        text3 = `A ${selectedEnemy.name} comes running at you!`;
+        text4 = `You see a ${selectedEnemy.name} approaching...`;
+        text5 = `You feel a ${selectedEnemy.name}'s breath on your neck...`;
 
-    text1 = `A wild ${selectedEnemy.name} has appeared!`;
-    text2 = `Out of nowhere a ${selectedEnemy.name} appears!`;
-    text3 = `A ${selectedEnemy.name} comes running at you!`;
-    text4 = `You see a ${selectedEnemy.name} approaching...`;
-    text5 = `You feel a ${selectedEnemy.name}'s breath on your neck...`;
+        newEnemyTextOptions = [text1, text2, text3, text4, text5];
 
-    
-    newEnemyTextOptions = [text1, text2, text3, text4, text5];
-
-    newEnemytextSelector = newEnemyTextOptions[ Math.ceil(Math.random() * (4 - 0) + 0) ];
-
-    document.getElementById("playerData").innerHTML = newEnemytextSelector;   }
-
-    
-
-// Defeated enemy / gain xp
-function defeatEnemy() {
+        // Determine the text outcome
+            newEnemytextSelector = newEnemyTextOptions[ Math.ceil(Math.random() * (4 - 0) + 0) ]; 
         
-        player.xp = player.xp + scaledXp;
+    // Output enemy info to enemy box
+        document.getElementById("playerData").innerHTML = newEnemytextSelector;  
 
-        if (player.xp >= 200 && playerLvl2 === false) {
-            player.lvl ++;
-            player.hp = 550;
-            playerLvl2 = true;
-            maxRollPlayer = maxRollPlayer + 10;
-        }
-        if (player.xp >= 400 && playerLvl3 === false) {
-            player.lvl ++;
-            player.hp = 600;
-            playerLvl3 = true;
-            maxRollPlayer = maxRollPlayer + 10;
-        }
-        if (player.xp >=   600 && playerLvl4 === false) {
-            player.lvl ++;
-            player.hp = 650;
-            playerLvl4 = true;
-            maxRollPlayer = maxRollPlayer + 10;
-        }
-        if (player.xp >= 800 && playerLvl5 === false) {
-            player.lvl ++;
-            player.hp = 700;
-            playerLvl5 = true;
-            maxRollPlayer = maxRollPlayer + 10;
-        }
-
-        text16 = `You defeated the ${selectedEnemy.name}! You gained ${selectedEnemy.xpValue} XP!`;
-        text17 = `The ${selectedEnemy.name} was beheaded! You gained ${selectedEnemy.xpValue} XP!`;
-        text18 = `The poor ${selectedEnemy.name} bled to death... You gained ${selectedEnemy.xpValue} XP!`;
-        text19 = `The ${selectedEnemy.name} put up a fight, but did not prevail. You gained ${selectedEnemy.xpValue} XP!`;
-        text20 = `The ${selectedEnemy.name}'s family will miss them, but you gained ${selectedEnemy.xpValue} XP!`;
-
-        enemyDefeatTextOptions = [text16, text17, text18, text19, text20];
-
-        enemyDefeatTextSelector = enemyDefeatTextOptions[ Math.ceil(Math.random() * (4 - 0) + 0) ];
-
-    document.getElementById("playerData").innerHTML = enemyDefeatTextSelector;
-
-    document.getElementById("playerLvl").innerHTML = player.lvl;
-    document.getElementById("playerXp").innerHTML = player.xp;
+        document.getElementById("enemyName").innerHTML = selectedEnemy.name;
+        document.getElementById("enemyHealth").innerHTML = selectedEnemy.hp;
+        document.getElementById("enemyLvl").innerHTML = selectedLvl;    
 }
 
 
+// --Defeated enemy--
+function defeatEnemy() {
+        
+        // Add enemy XP value to player xp pool
+            player.xp = player.xp + scaledXp;
 
-// Player attacking enemy 
-function attackenemy() {
+        // Determine player level 
+            if (player.xp >= 200 && playerLvl2 === false) {
+                player.lvl ++;
+                player.hp = 550;
+                playerLvl2 = true;
+                maxRollPlayer = maxRollPlayer + 10; }
+            if (player.xp >= 400 && playerLvl3 === false) {
+                player.lvl ++;
+                player.hp = 600;
+                playerLvl3 = true;
+                maxRollPlayer = maxRollPlayer + 10; }
+            if (player.xp >=   600 && playerLvl4 === false) {
+                player.lvl ++;
+                player.hp = 650;
+                playerLvl4 = true;
+                maxRollPlayer = maxRollPlayer + 10; }
+            if (player.xp >= 800 && playerLvl5 === false) {
+                player.lvl ++;
+                player.hp = 700;
+                playerLvl5 = true;
+                maxRollPlayer = maxRollPlayer + 10; }
 
-    text6 = `You slashed the ${selectedEnemy.name} and did ${playerAttackDamage} damage!`;
-    text7 = `You stabbed the ${selectedEnemy.name} from behind and did ${playerAttackDamage} damage!`;
-    text8 = `Your blade slashed the ${selectedEnemy.name} and did ${playerAttackDamage} damage!`;
-    text9 = `Your blow delt ${playerAttackDamage} damage to the ${selectedEnemy.name}!`;
-    text10 = `You poked the ${selectedEnemy.name} in the eye for ${playerAttackDamage} damage!`;
+        // Select random text outcome for defeating enemy
+            // Defeat enemy text outcomes
+            text16 = `You defeated the ${selectedEnemy.name}! You gained ${selectedEnemy.xpValue} XP!`;
+            text17 = `The ${selectedEnemy.name} was beheaded! You gained ${selectedEnemy.xpValue} XP!`;
+            text18 = `The poor ${selectedEnemy.name} bled to death... You gained ${selectedEnemy.xpValue} XP!`;
+            text19 = `The ${selectedEnemy.name} put up a fight, but did not prevail. You gained ${selectedEnemy.xpValue} XP!`;
+            text20 = `The ${selectedEnemy.name}'s family will miss them, but you gained ${selectedEnemy.xpValue} XP!`;
 
-    playerAttackTextOptions1 = [text6, text7, text8, text9, text10,];
-    
-    playerAttackTextSelector1 = playerAttackTextOptions1[ Math.ceil(Math.random() * (4 - 0) + 0) ];
+            enemyDefeatTextOptions = [text16, text17, text18, text19, text20];
+
+            // Determine the text outcome
+                enemyDefeatTextSelector = enemyDefeatTextOptions[ Math.ceil(Math.random() * (4 - 0) + 0) ];
+
+        // Output enemy info to enemy box
+            document.getElementById("playerData").innerHTML = enemyDefeatTextSelector;
+
+            document.getElementById("playerLvl").innerHTML = player.lvl;
+            document.getElementById("playerXp").innerHTML = player.xp;
+}
 
 
-    text21 = `You hit the ${selectedEnemy.name}'s armour for ${Math.floor(playerAttackDamage / 2)} damage!`;
-    text22 = `The ${selectedEnemy.name} blocked your attack but still took ${Math.floor(playerAttackDamage / 2)} damage`;
-    text23 = `The ${selectedEnemy.name} managed to block and take ${Math.floor(playerAttackDamage / 2)} damage`;
-    text24 = `Your attack of ${Math.floor(playerAttackDamage / 2)} damage bounced off the ${selectedEnemy.name}'s armour!`;
-    text25 = `You nicked the ${selectedEnemy.name} for ${Math.floor(playerAttackDamage / 2)} damage`;
+// --Player attacking enemy--
+function attackEnemy() {
 
-    playerAttackTextOptions2 = [text21, text22, text23, text24, text25,];
-    
-    playerAttackTextSelector2 = playerAttackTextOptions2[ Math.ceil(Math.random() * (4 - 0) + 0) ]; 
+    // Player full attack text outcomes
+        text6 = `You slashed the ${selectedEnemy.name} and did ${playerAttackDamage} damage!`;
+        text7 = `You stabbed the ${selectedEnemy.name} from behind and did ${playerAttackDamage} damage!`;
+        text8 = `Your blade slashed the ${selectedEnemy.name} and did ${playerAttackDamage} damage!`;
+        text9 = `Your blow delt ${playerAttackDamage} damage to the ${selectedEnemy.name}!`;
+        text10 = `You poked the ${selectedEnemy.name} in the eye for ${playerAttackDamage} damage!`;
 
-    switch(playerBlock) {
-        case false:
-            // Attacking
-            if (enemyBlock == false) {
+        playerAttackTextOptions1 = [text6, text7, text8, text9, text10,];
+        
+        // Determine full attack text outcome
+            playerAttackTextSelector1 = playerAttackTextOptions1[ Math.ceil(Math.random() * (4 - 0) + 0) ];
 
-                switch (playerAttackDamage >= 10) {
-                    case true:
-                        selectedEnemy.hp = selectedEnemy.hp - playerAttackDamage; 
-                        break;
+    // Player blocked attack text outcomes
+        text21 = `You hit the ${selectedEnemy.name}'s armour for ${Math.floor(playerAttackDamage / 2)} damage!`;
+        text22 = `The ${selectedEnemy.name} blocked your attack but still took ${Math.floor(playerAttackDamage / 2)} damage`;
+        text23 = `The ${selectedEnemy.name} managed to block and take ${Math.floor(playerAttackDamage / 2)} damage`;
+        text24 = `Your attack of ${Math.floor(playerAttackDamage / 2)} damage bounced off the ${selectedEnemy.name}'s armour!`;
+        text25 = `You nicked the ${selectedEnemy.name} for ${Math.floor(playerAttackDamage / 2)} damage`;
 
-                    case false:
-                        selectedEnemy.hp;
-                        break;  }   }
+        playerAttackTextOptions2 = [text21, text22, text23, text24, text25,];
+        
+        // Determine blocked attack text outcomes
+            playerAttackTextSelector2 = playerAttackTextOptions2[ Math.ceil(Math.random() * (4 - 0) + 0) ]; 
 
-            else if (enemyBlock == true) {
+    // Check for player block
+        switch(playerBlock) {
 
-                switch (playerAttackDamage >= 10) {
-                    case true:                        
-                        selectedEnemy.hp = (selectedEnemy.hp - (Math.floor(playerAttackDamage / 2) ) ); 
-                        document.getElementById("playerData").innerHTML = `The enemy blocked!`;
+        //  Player not blocking -- Attacking
+            case false:
+
+            // Check for enemy block - false -- full attack
+                if (enemyBlock == false) {
+
+                // Check for miss 
+                    switch (playerAttackDamage >= 10) {
+                    
+                    // hit -- full attack
+                        case true:
+                            selectedEnemy.hp = selectedEnemy.hp - playerAttackDamage; 
                             break;
 
-                    case false:
-                        selectedEnemy.hp;
+                    // miss -- no attack
+                        case false:
+                            selectedEnemy.hp;
                             break;  }   }
-            
+
+            // Check for enemy block - true -- half attack
+                else if (enemyBlock == true) {
+
+                // Check for miss 
+                    switch (playerAttackDamage >= 10) {
+
+                    // hit -- half attack
+                        case true:                        
+                            selectedEnemy.hp = (selectedEnemy.hp - (Math.floor(playerAttackDamage / 2) ) ); 
+                            document.getElementById("playerData").innerHTML = `The enemy blocked!`;
+                                break;
+
+                    // miss -- no attack
+                        case false:
+                            selectedEnemy.hp;
+                                break;  }   }
+                
             break;
-        case true: 
 
-            // Blocking
-            document.getElementById("playerData").innerHTML = `You blocked.`;
-            break;  } 
+        // Player is blocking
+            case true: 
 
-    //Display result
-    if (playerAttackDamage >= 10 && playerBlock == false) {
-        switch (enemyBlock) {
+            // player block -- logic handled in "attackPlayer()"
+                document.getElementById("playerData").innerHTML = `You blocked.`;
+                break;  } 
 
-            case true:
-                    document.getElementById("playerData").innerHTML = playerAttackTextSelector2;
-                break;
+    // Display result
 
-            case false:
-                    document.getElementById("playerData").innerHTML = playerAttackTextSelector1;
-                break;  }   }
+        // player attack hit
+            if (playerAttackDamage >= 10 && playerBlock == false) {
 
-    else if (playerAttackDamage <= 9 && playerBlock == false) {
-        document.getElementById("playerData").innerHTML = `You missed!`;    }   }
+            // Check for enemy block -- determines text outcome
+                switch (enemyBlock) {
 
+                // Enemy is blocking -- blocking text outcome
+                    case true:
+                            document.getElementById("playerData").innerHTML = playerAttackTextSelector2;
+                        break;
+
+                // Enemy is not blocking -- full attack text outcome
+                    case false:
+                            document.getElementById("playerData").innerHTML = playerAttackTextSelector1;
+                        break;  }   }
+
+        // Player attack miss
+            else if (playerAttackDamage <= 9 && playerBlock == false) {
+                document.getElementById("playerData").innerHTML = `You missed!`;    }   
+}
 
 
 // enemy attacking player 
 function attackPlayer() {
 
-
+    // Enemy full attack text outcomes
         text11 = `The take a blow that does ${enemyAttackDamage} damage!`;
         text12 = `You taste blood and take ${enemyAttackDamage} damage`;
         text13 = `You grit your teeth and take ${enemyAttackDamage} damage`;
@@ -334,8 +358,10 @@ function attackPlayer() {
 
         enemyAttackTextOptions1 = [text11, text12, text13, text14, text15,];
         
-        enemyAttackTextSelector1 = enemyAttackTextOptions1[ Math.ceil(Math.random() * (4 - 0) + 0) ];
+        // Determine text outcome
+            enemyAttackTextSelector1 = enemyAttackTextOptions1[ Math.ceil(Math.random() * (4 - 0) + 0) ];
 
+    // Enemy blocked attack text outcomes
         text26 = `You block a jab but still take ${Math.floor(enemyAttackDamage / 2)} damage`;
         text27 = `Your armour protects you from taking any more than ${Math.floor(enemyAttackDamage / 2)} damage`;
         text28 = `Your helmet catches a blow of ${Math.floor(enemyAttackDamage / 2)} damage!`;
@@ -344,134 +370,166 @@ function attackPlayer() {
         
         enemyAttackTextOptions2 = [text26, text27, text28, text29, text30,];
 
-        enemyAttackTextSelector2 = enemyAttackTextOptions2[ Math.ceil(Math.random() * (4 - 0) + 0) ];
+        // Determine blocked attack text outcome
+            enemyAttackTextSelector2 = enemyAttackTextOptions2[ Math.ceil(Math.random() * (4 - 0) + 0) ];
     
+    // Determine enemy block state        
         enemyBlockChoice = Math.ceil(Math.random() * (100 - 1) + 1);
 
             if (enemyBlockChoice <= 20) { enemyBlock = true; }
             else if (enemyBlockChoice >= 21) { enemyBlock = false; }
 
-    switch(enemyBlock) {
-        case false:
+    // Check for enemy block
+        switch(enemyBlock) {
 
-            if (playerBlock == false) {
-                switch(enemyAttackDamage >= 10) {
+        // Enemy not blocking -- Attacking 
+            case false:
 
-                    case true:
-                        player.hp = player.hp - enemyAttackDamage; 
-                        break;
+            // Check for player block - false -- full attack
+                if (playerBlock == false) {
 
-                    case false:
-                        player.hp;
-                        break;  }   }
+                // Check for miss
+                    switch(enemyAttackDamage >= 10) {
 
-            else if (playerBlock == true) {
-                switch(enemyAttackDamage >= 10) {
+                    // hit -- full attack
+                        case true:
+                            player.hp = player.hp - enemyAttackDamage; 
+                            break;
 
-                    case true:
-                        player.hp = (player.hp - Math.floor(enemyAttackDamage / 2)); 
-                        break;
+                    // miss -- no attack
+                        case false:
+                            player.hp;
+                            break;  }   }
 
-                    case false:
-                        player.hp;
-                        break;  }   }
+            // Check for player block - true -- half attack
+                else if (playerBlock == true) {
+
+                // Check for miss
+                    switch(enemyAttackDamage >= 10) {
+
+                    // hit -- half attack
+                        case true:
+                            player.hp = (player.hp - Math.floor(enemyAttackDamage / 2)); 
+                            break;
+                    
+                    // miss -- no attack
+                        case false:
+                            player.hp;
+                            break;  }   }
             break;
 
-        case true: 
-            document.getElementById("playerData").innerHTML = `enemy blocked!`;
-            break;  }
-
-    if (enemyAttackDamage >= 10 && enemyBlock == false) {
-        switch (playerBlock) {
-
+        // Enemy is blocking
             case true: 
-                document.getElementById("playerData").innerHTML = enemyAttackTextSelector2;
-                break;
 
-            case false:
-                document.getElementById("playerData").innerHTML = enemyAttackTextSelector1;
-                break;  }   }
+            // Enemy block -- logic handled in "attackEnemy()"
+                document.getElementById("playerData").innerHTML = `enemy blocked!`;
+                break;  }
 
-    else if (enemyAttackDamage <= 9 && enemyBlock == false) {
-        document.getElementById("playerData").innerHTML = `The enemy missed!`;  }   }
+    // Display result
+
+        // Enemy attack hit
+            if (enemyAttackDamage >= 10 && enemyBlock == false) {
+
+            // Check for player block -- determines text outcome
+                switch (playerBlock) {
+
+                // Player is blocking -- half attack text outcome
+                    case true: 
+                        document.getElementById("playerData").innerHTML = enemyAttackTextSelector2;
+                        break;
+
+                // Player is not blocking -- full attack text outcome
+                    case false:
+                        document.getElementById("playerData").innerHTML = enemyAttackTextSelector1;
+                        break;  }   }
+
+            // Enemy Attack miss
+                else if (enemyAttackDamage <= 9 && enemyBlock == false) {
+                    document.getElementById("playerData").innerHTML = `The enemy missed!`;  }   
+}
 
 
-// Start Game 
+// --Start Game--
 function startGame() {
-    if (hasRunOnce == false) {
 
-        generateEnemy();
+    // Determine if the function has been executed 
+        if (hasRunOnce == false) {
 
-    // Initialize player info
-    document.getElementById("playerName").innerHTML = player.name;
-    document.getElementById("playerHealth").innerHTML = player.hp;
-    document.getElementById("playerLvl").innerHTML = player.lvl;
-    document.getElementById("playerXp").innerHTML = player.xp;
-    
-    playerTurn = true;
-    enemyTurn = false;
-    
-    hasRunOnce = true;  }    }
+            generateEnemy();
 
-
-
-
-// Start game / end turn
-function select() {
-    startGame();
-
-    // Check if players are still alive
-    if (player.hp > 0 && selectedEnemy.hp > 0 && enemyTurn == true) {
-
-        attackPlayer();         
-
-        enemyTurn = false;
+        // Initialize player info
+            document.getElementById("playerName").innerHTML = player.name;
+            document.getElementById("playerHealth").innerHTML = player.hp;
+            document.getElementById("playerLvl").innerHTML = player.lvl;
+            document.getElementById("playerXp").innerHTML = player.xp;
+            
         playerTurn = true;
+        enemyTurn = false;
+        
+        hasRunOnce = true;  }    
+}
 
-        if (selectedEnemy.hp < 1) {
-                selectedEnemy.hp = 0;
-                //document.getElementById("playerData").innerHTML = `enemy is dead. You Win!`;    
-                }
-            else if (player.hp < 1) {
+
+// --End turn--
+function select() {
+
+    // Will run this function only once 
+        startGame();
+
+    // Check if players are still alive  /  if it is the enemy's turn
+        if (player.hp > 0 && selectedEnemy.hp > 0 && enemyTurn == true) {
+
+            // Enemy attack
+                attackPlayer();         
+
+            // End turn
+                enemyTurn = false;
+                playerTurn = true;
+
+        // Make sure health does not go below 0
+            if (selectedEnemy.hp < 1) { selectedEnemy.hp = 0; }
+
+        // Determine if player is dead   (put counter here)
+            else if (player.hp < 1) { 
                 player.hp = 0;
                 document.getElementById("playerData").innerHTML = `You are dead.`;  }   }
 
-    if (enemyIsDead == true) {
-        enemyIsDead = false;
-        generateEnemy();
+    // Determine if enemy is dead and generate new enemy
+        if (enemyIsDead == true) {
+            enemyIsDead = false;
+            generateEnemy();
 
-        document.getElementById("enemyName").innerHTML = selectedEnemy.name;
-        document.getElementById("enemyHealth").innerHTML = selectedEnemy.hp;
-        document.getElementById("enemyLvl").innerHTML = selectedLvl;  }
+            document.getElementById("enemyName").innerHTML = selectedEnemy.name;
+            document.getElementById("enemyHealth").innerHTML = selectedEnemy.hp;
+            document.getElementById("enemyLvl").innerHTML = selectedLvl;  }
+
     // Update player health 
-    document.getElementById("playerHealth").innerHTML = player.hp;  }
+        document.getElementById("playerHealth").innerHTML = player.hp;  
+}
 
 
-
-
-// Player turn
+// --Player turn--
 function fight() {
 
     // Won't run until select is pressed first
-    if (hasRunOnce == true) {
+        if (hasRunOnce == true) {
 
-        if (player.hp > 0 && selectedEnemy.hp > 0 && playerTurn == true) {
+        // Check if players are still alive  /  if it is player's turn
+            if (player.hp > 0 && selectedEnemy.hp > 0 && playerTurn == true) {
 
-                attackenemy();
-            
-                playerTurn = false;
-                enemyTurn = true;
+                // Player attack
+                    attackEnemy();
+                
+                // End turn
+                    playerTurn = false;
+                    enemyTurn = true;
 
-            if (selectedEnemy.hp < 1) {
-                selectedEnemy.hp = 0;
-                document.getElementById("playerData").innerHTML = `enemy is dead. You Win!`;
+            // Determine if enemy is dead  /  show fight result
+                if (selectedEnemy.hp < 1) { selectedEnemy.hp = 0;  enemyIsDead = true;  defeatEnemy();  }
 
-                enemyIsDead = true;
-                defeatEnemy();  }
-
-            else if (player.hp < 1) {
-                player.hp = 0;
-                document.getElementById("playerData").innerHTML = `You are dead.`;  }   }
+            // Determine if player is dead  /  show end screen 
+                else if (player.hp < 1) { player.hp = 0; }   }
         
         // Update enemy health
-        document.getElementById("enemyHealth").innerHTML = selectedEnemy.hp;    }   }
+            document.getElementById("enemyHealth").innerHTML = selectedEnemy.hp;    }   
+}
