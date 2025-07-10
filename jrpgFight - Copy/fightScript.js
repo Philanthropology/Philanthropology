@@ -228,11 +228,11 @@ function defeatEnemy() {
 
         // Select random text outcome for defeating enemy
             // Defeat enemy text outcomes
-            text16 = `You defeated the ${selectedEnemy.name}! You gained ${selectedEnemy.xpValue} XP!`;
-            text17 = `The ${selectedEnemy.name} was beheaded! You gained ${selectedEnemy.xpValue} XP!`;
-            text18 = `The poor ${selectedEnemy.name} bled to death... You gained ${selectedEnemy.xpValue} XP!`;
-            text19 = `The ${selectedEnemy.name} put up a fight, but did not prevail. You gained ${selectedEnemy.xpValue} XP!`;
-            text20 = `The ${selectedEnemy.name}'s family will miss them, but you gained ${selectedEnemy.xpValue} XP!`;
+            text16 = `You defeated the ${selectedEnemy.name}! You gained ${scaledXp} XP!`;
+            text17 = `The ${selectedEnemy.name} was beheaded! You gained ${scaledXp} XP!`;
+            text18 = `The poor ${selectedEnemy.name} bled to death... You gained ${scaledXp} XP!`;
+            text19 = `The ${selectedEnemy.name} put up a fight, but did not prevail. You gained ${scaledXp} XP!`;
+            text20 = `The ${selectedEnemy.name}'s family will miss them, but you gained ${scaledXp} XP!`;
 
             enemyDefeatTextOptions = [text16, text17, text18, text19, text20];
 
