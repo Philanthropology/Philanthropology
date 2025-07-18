@@ -162,12 +162,13 @@
         let text19;
         let text20;
 
+// Displays boss fight button
 function bossFightBtn() {
     bossFight = true;
     select();
 }
 
-
+// Determines enemy lvl (Change variable and function name)
 let minRoller = () => {
     if (player.lvl >= 5) {
         enemyMinRoll = player.lvl - 4;
@@ -190,9 +191,7 @@ function enemyAttackTurn()  { enemyAttackDamage = Math.floor(Math.random() * (sc
 // --Create new enemy--
 function generateEnemy() {
 
-    document.getElementById("bossBtn").style.display = "none";
-
-
+            document.getElementById("bossBtn").style.display = "none";
             minRoller();
 
         // Determine enemy type
@@ -260,30 +259,15 @@ function generateEnemy() {
             document.getElementById("enemyHealth").innerHTML = selectedEnemy.hp;
             document.getElementById("enemyLvl").innerHTML = selectedLvl;   
 
-    //     break;
-
-    //     case true: 
-            
-    //         selectedEnemy = boss;
-    //         selectedLvl = 1000;
-
-            
-    //         document.getElementById("playerData").innerHTML = `Oh shit its the fucking ${boss.name}!`;  
-
-    //         document.getElementById("enemyName").innerHTML = selectedEnemy.name;
-    //         document.getElementById("enemyHealth").innerHTML = selectedEnemy.hp;
-    //         document.getElementById("enemyLvl").innerHTML = selectedLvl; 
-
-        
-    // }
-
 }
 
 
 // --Defeated enemy--
 function defeatEnemy() {
         
-            player.hp += Math.floor(scaledXp / 2);
+            // replenish Player health by half of received XP
+            player.hp += scaledXp
+            //Math.floor(scaledXp / 1.2);
 
         // Add enemy XP value to player xp pool
             player.xp += scaledXp;
@@ -299,30 +283,6 @@ function defeatEnemy() {
                 player.xp = 0;
             }
 
-            
-
-
-        // Determine player level 
-            // if (player.xp >= 200 && playerLvl2 === false) {
-            //     player.lvl ++;
-            //     player.hp = 550;
-            //     playerLvl2 = true;
-            //     maxRollPlayer = maxRollPlayer + 10; }
-            // if (player.xp >= 400 && playerLvl3 === false) {
-            //     player.lvl ++;
-            //     player.hp = 600;
-            //     playerLvl3 = true;
-            //     maxRollPlayer = maxRollPlayer + 10; }
-            // if (player.xp >=   600 && playerLvl4 === false) {
-            //     player.lvl ++;
-            //     player.hp = 650;
-            //     playerLvl4 = true;
-            //     maxRollPlayer = maxRollPlayer + 10; }
-            // if (player.xp >= 800 && playerLvl5 === false) {
-            //     player.lvl ++;
-            //     player.hp = 700;
-            //     playerLvl5 = true;
-            //     maxRollPlayer = maxRollPlayer + 10; }
 
         // Enemy counter
             if (selectedEnemy == bandit)       { banditCounter ++;  }
@@ -330,8 +290,6 @@ function defeatEnemy() {
             else if (selectedEnemy == drowner) { drownerCounter ++; }
             else if (selectedEnemy == wyvern)  { wyvernCounter ++;  }
             else if (selectedEnemy == siren)   { sirenCounter ++;   }
-
-           
 
         // Select random text outcome for defeating enemy
             // Defeat enemy text outcomes
@@ -356,8 +314,6 @@ function defeatEnemy() {
                 ${drownerCounter} drowners, ${wyvernCounter} wyverns, and ${sirenCounter} sirens.`; 
             }
             
-
-
         // Output enemy info to enemy box
             document.getElementById("playerData").innerHTML = enemyDefeatTextSelector;
 
@@ -630,11 +586,12 @@ function select() {
                 selectedEnemy.hp = 0; 
             }
 
-        // Determine if player is dead   (put counter here)
+        // Determine if player is dead  
             else if (player.hp < 1) { 
                 player.hp = 0;
                 document.getElementById("playerData").innerHTML = `You killed ${banditCounter} bandits, ${spiderCounter} spiders, 
-                ${drownerCounter} drowners, ${wyvernCounter} wyverns, and ${sirenCounter} sirens.`;  
+                    ${drownerCounter} drowners, ${wyvernCounter} wyverns, and ${sirenCounter} sirens.`;  
+
                 document.getElementById("dead-text").style.display = "block";    
                 }      
             }
@@ -677,7 +634,8 @@ function fight() {
                 if (selectedEnemy.hp < 1) { 
                     selectedEnemy.hp = 0;  enemyIsDead = true;  defeatEnemy();  
 
-                    if (banditCounter >= 1 && spiderCounter >= 1 && drownerCounter >= 1 && wyvernCounter >= 0 && sirenCounter >= 0 && boss.hp >= 1) {
+                    // 
+                    if (banditCounter >= 1 && spiderCounter >= 1 && drownerCounter >= 1 && wyvernCounter >= 1 && sirenCounter >= 1 && boss.hp >= 1) {
                         document.getElementById("bossBtn").style.display = "block";
 
                         
